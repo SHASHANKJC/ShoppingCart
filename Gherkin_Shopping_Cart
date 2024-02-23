@@ -1,0 +1,26 @@
+Feature: Shopping Cart
+
+Scenario: Add products to the shopping cart
+    Given the user is on the product page
+    When I add 2 units of "Laptop" and 1 unit of "Headphones" to the cart
+    Then the shopping cart should display the correct quantities
+
+Scenario: View the total price in the shopping cart
+    Given the shopping cart has products added
+    When I view the shopping cart
+    Then the total price should be calculated correctly
+
+Scenario: Proceed to checkout from the shopping cart
+    Given the shopping cart has products added
+    When I click on the "Proceed to Checkout" button
+    Then I should be directed to the checkout page
+
+Scenario: Remove products from the shopping cart
+    Given the shopping cart has products added
+    When I remove 1 unit of "Laptop" from the cart
+    Then the shopping cart should display the updated quantities
+
+Scenario: Add a product with a discount to the shopping cart
+    Given there is a product with a 10% discount
+    When I add the discounted product to the cart
+    Then the total price in the shopping cart should reflect the discount
